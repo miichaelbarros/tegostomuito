@@ -1,83 +1,552 @@
 const STORAGE_KEY = 'romantic-site-config-v3-media';
-const AUTO_CAROUSEL_INTERVAL_MS = 5000; // 5000 = 5 segundos
 
 const AVAILABLE_AUDIO_FILES = [
-  { value: 'assets/musica1.m4a', label: 'musica1.m4a' },
-  { value: 'assets/musica2.mp3', label: 'musica2.mp3' },
-  { value: 'assets/musica3.mp3', label: 'musica3.mp3' }
+  {
+    "value": "assets/musica1.m4a",
+    "label": "musica1.m4a"
+  },
+  {
+    "value": "assets/musica2.mp3",
+    "label": "musica2.mp3"
+  },
+  {
+    "value": "assets/musica3.mp3",
+    "label": "musica3.mp3"
+  }
 ];
 
 const AVAILABLE_COVER_FILES = [
-  { value: 'assets/capa1.jpg', label: 'capa1.jpg' },
-  { value: 'assets/capa2.jpg', label: 'capa2.jpg' },
-  { value: 'assets/capa3.jpg', label: 'capa3.jpg' }
+  {
+    "value": "assets/banner.jpg",
+    "label": "banner.jpg"
+  },
+  {
+    "value": "assets/capa1.jpg",
+    "label": "capa1.jpg"
+  },
+  {
+    "value": "assets/capa2.jpg",
+    "label": "capa2.jpg"
+  },
+  {
+    "value": "assets/capa3.jpg",
+    "label": "capa3.jpg"
+  }
 ];
 
+const AVAILABLE_HERO_IMAGE_FILES = [
+  {
+    "value": "assets/banner.jpg",
+    "label": "banner.jpg"
+  },
+  {
+    "value": "assets/capa1.jpg",
+    "label": "capa1.jpg"
+  },
+  {
+    "value": "assets/capa2.jpg",
+    "label": "capa2.jpg"
+  },
+  {
+    "value": "assets/capa3.jpg",
+    "label": "capa3.jpg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.53.57.jpeg",
+    "label": "img_2026-04-04_at_08.53.57.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.07.jpeg",
+    "label": "img_2026-04-04_at_08.54.07.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.08.jpeg",
+    "label": "img_2026-04-04_at_08.54.08.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.14.jpeg",
+    "label": "img_2026-04-04_at_08.54.14.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.14_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.14_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.14_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.14_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.15.jpeg",
+    "label": "img_2026-04-04_at_08.54.15.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.15_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.15_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.15_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.15_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.16.jpeg",
+    "label": "img_2026-04-04_at_08.54.16.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.16_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.16_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.16_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.16_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.17.jpeg",
+    "label": "img_2026-04-04_at_08.54.17.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.17_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.17_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.17_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.17_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.17_3.jpeg",
+    "label": "img_2026-04-04_at_08.54.17_3.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.18.jpeg",
+    "label": "img_2026-04-04_at_08.54.18.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.18_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.18_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.18_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.18_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.19.jpeg",
+    "label": "img_2026-04-04_at_08.54.19.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.19_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.19_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.28.jpeg",
+    "label": "img_2026-04-04_at_08.54.28.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.28_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.28_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.28_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.28_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.29.jpeg",
+    "label": "img_2026-04-04_at_08.54.29.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.29_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.29_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.30.jpeg",
+    "label": "img_2026-04-04_at_08.54.30.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.37.jpeg",
+    "label": "img_2026-04-04_at_08.54.37.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.37_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.37_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.38.jpeg",
+    "label": "img_2026-04-04_at_08.54.38.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.38_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.38_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.38_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.38_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.39.jpeg",
+    "label": "img_2026-04-04_at_08.54.39.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.39_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.39_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.39_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.39_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.39_3.jpeg",
+    "label": "img_2026-04-04_at_08.54.39_3.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.40.jpeg",
+    "label": "img_2026-04-04_at_08.54.40.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.40_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.40_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.42.jpeg",
+    "label": "img_2026-04-04_at_08.54.42.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.42_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.42_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.43.jpeg",
+    "label": "img_2026-04-04_at_08.54.43.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.43_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.43_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.43_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.43_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.44.jpeg",
+    "label": "img_2026-04-04_at_08.54.44.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.44_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.44_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.44_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.44_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.45.jpeg",
+    "label": "img_2026-04-04_at_08.54.45.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.50.jpeg",
+    "label": "img_2026-04-04_at_08.54.50.jpeg"
+  }
+];
+
+const AVAILABLE_HERO_VIDEO_FILES = [
+  {
+    "value": "media/vid_2026-04-04_at_08.54.03.mp4",
+    "label": "vid_2026-04-04_at_08.54.03.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.07.mp4",
+    "label": "vid_2026-04-04_at_08.54.07.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.09.mp4",
+    "label": "vid_2026-04-04_at_08.54.09.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.12.mp4",
+    "label": "vid_2026-04-04_at_08.54.12.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.13.mp4",
+    "label": "vid_2026-04-04_at_08.54.13.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.18.mp4",
+    "label": "vid_2026-04-04_at_08.54.18.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.20.mp4",
+    "label": "vid_2026-04-04_at_08.54.20.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.38.mp4",
+    "label": "vid_2026-04-04_at_08.54.38.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.41.mp4",
+    "label": "vid_2026-04-04_at_08.54.41.mp4"
+  }
+];
 
 const AVAILABLE_IMAGE_FILES = [
-  { value: 'media/img_2026-04-04_at_08.53.57.jpeg', label: 'img_2026-04-04_at_08.53.57.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.07.jpeg', label: 'img_2026-04-04_at_08.54.07.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.08.jpeg', label: 'img_2026-04-04_at_08.54.08.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.14.jpeg', label: 'img_2026-04-04_at_08.54.14.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.14_1.jpeg', label: 'img_2026-04-04_at_08.54.14_1.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.14_2.jpeg', label: 'img_2026-04-04_at_08.54.14_2.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.15.jpeg', label: 'img_2026-04-04_at_08.54.15.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.15_1.jpeg', label: 'img_2026-04-04_at_08.54.15_1.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.15_2.jpeg', label: 'img_2026-04-04_at_08.54.15_2.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.16.jpeg', label: 'img_2026-04-04_at_08.54.16.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.16_1.jpeg', label: 'img_2026-04-04_at_08.54.16_1.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.16_2.jpeg', label: 'img_2026-04-04_at_08.54.16_2.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.17.jpeg', label: 'img_2026-04-04_at_08.54.17.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.17_1.jpeg', label: 'img_2026-04-04_at_08.54.17_1.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.17_2.jpeg', label: 'img_2026-04-04_at_08.54.17_2.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.17_3.jpeg', label: 'img_2026-04-04_at_08.54.17_3.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.18.jpeg', label: 'img_2026-04-04_at_08.54.18.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.18_1.jpeg', label: 'img_2026-04-04_at_08.54.18_1.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.18_2.jpeg', label: 'img_2026-04-04_at_08.54.18_2.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.19.jpeg', label: 'img_2026-04-04_at_08.54.19.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.19_1.jpeg', label: 'img_2026-04-04_at_08.54.19_1.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.28.jpeg', label: 'img_2026-04-04_at_08.54.28.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.28_1.jpeg', label: 'img_2026-04-04_at_08.54.28_1.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.28_2.jpeg', label: 'img_2026-04-04_at_08.54.28_2.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.29.jpeg', label: 'img_2026-04-04_at_08.54.29.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.29_1.jpeg', label: 'img_2026-04-04_at_08.54.29_1.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.30.jpeg', label: 'img_2026-04-04_at_08.54.30.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.37.jpeg', label: 'img_2026-04-04_at_08.54.37.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.37_1.jpeg', label: 'img_2026-04-04_at_08.54.37_1.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.38.jpeg', label: 'img_2026-04-04_at_08.54.38.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.38_1.jpeg', label: 'img_2026-04-04_at_08.54.38_1.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.38_2.jpeg', label: 'img_2026-04-04_at_08.54.38_2.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.39.jpeg', label: 'img_2026-04-04_at_08.54.39.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.39_1.jpeg', label: 'img_2026-04-04_at_08.54.39_1.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.39_2.jpeg', label: 'img_2026-04-04_at_08.54.39_2.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.39_3.jpeg', label: 'img_2026-04-04_at_08.54.39_3.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.40.jpeg', label: 'img_2026-04-04_at_08.54.40.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.40_1.jpeg', label: 'img_2026-04-04_at_08.54.40_1.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.42.jpeg', label: 'img_2026-04-04_at_08.54.42.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.42_1.jpeg', label: 'img_2026-04-04_at_08.54.42_1.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.43.jpeg', label: 'img_2026-04-04_at_08.54.43.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.43_1.jpeg', label: 'img_2026-04-04_at_08.54.43_1.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.43_2.jpeg', label: 'img_2026-04-04_at_08.54.43_2.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.44.jpeg', label: 'img_2026-04-04_at_08.54.44.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.44_1.jpeg', label: 'img_2026-04-04_at_08.54.44_1.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.44_2.jpeg', label: 'img_2026-04-04_at_08.54.44_2.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.45.jpeg', label: 'img_2026-04-04_at_08.54.45.jpeg' },
-  { value: 'media/img_2026-04-04_at_08.54.50.jpeg', label: 'img_2026-04-04_at_08.54.50.jpeg' }
+  {
+    "value": "media/img_2026-04-04_at_08.53.57.jpeg",
+    "label": "img_2026-04-04_at_08.53.57.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.07.jpeg",
+    "label": "img_2026-04-04_at_08.54.07.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.08.jpeg",
+    "label": "img_2026-04-04_at_08.54.08.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.14.jpeg",
+    "label": "img_2026-04-04_at_08.54.14.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.14_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.14_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.14_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.14_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.15.jpeg",
+    "label": "img_2026-04-04_at_08.54.15.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.15_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.15_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.15_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.15_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.16.jpeg",
+    "label": "img_2026-04-04_at_08.54.16.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.16_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.16_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.16_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.16_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.17.jpeg",
+    "label": "img_2026-04-04_at_08.54.17.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.17_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.17_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.17_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.17_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.17_3.jpeg",
+    "label": "img_2026-04-04_at_08.54.17_3.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.18.jpeg",
+    "label": "img_2026-04-04_at_08.54.18.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.18_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.18_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.18_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.18_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.19.jpeg",
+    "label": "img_2026-04-04_at_08.54.19.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.19_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.19_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.28.jpeg",
+    "label": "img_2026-04-04_at_08.54.28.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.28_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.28_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.28_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.28_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.29.jpeg",
+    "label": "img_2026-04-04_at_08.54.29.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.29_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.29_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.30.jpeg",
+    "label": "img_2026-04-04_at_08.54.30.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.37.jpeg",
+    "label": "img_2026-04-04_at_08.54.37.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.37_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.37_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.38.jpeg",
+    "label": "img_2026-04-04_at_08.54.38.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.38_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.38_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.38_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.38_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.39.jpeg",
+    "label": "img_2026-04-04_at_08.54.39.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.39_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.39_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.39_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.39_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.39_3.jpeg",
+    "label": "img_2026-04-04_at_08.54.39_3.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.40.jpeg",
+    "label": "img_2026-04-04_at_08.54.40.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.40_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.40_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.42.jpeg",
+    "label": "img_2026-04-04_at_08.54.42.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.42_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.42_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.43.jpeg",
+    "label": "img_2026-04-04_at_08.54.43.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.43_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.43_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.43_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.43_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.44.jpeg",
+    "label": "img_2026-04-04_at_08.54.44.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.44_1.jpeg",
+    "label": "img_2026-04-04_at_08.54.44_1.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.44_2.jpeg",
+    "label": "img_2026-04-04_at_08.54.44_2.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.45.jpeg",
+    "label": "img_2026-04-04_at_08.54.45.jpeg"
+  },
+  {
+    "value": "media/img_2026-04-04_at_08.54.50.jpeg",
+    "label": "img_2026-04-04_at_08.54.50.jpeg"
+  }
 ];
 
 const AVAILABLE_VIDEO_FILES = [
-  { value: 'media/vid_2026-04-04_at_08.54.03.mp4', label: 'vid_2026-04-04_at_08.54.03.mp4' },
-  { value: 'media/vid_2026-04-04_at_08.54.07.mp4', label: 'vid_2026-04-04_at_08.54.07.mp4' },
-  { value: 'media/vid_2026-04-04_at_08.54.09.mp4', label: 'vid_2026-04-04_at_08.54.09.mp4' },
-  { value: 'media/vid_2026-04-04_at_08.54.12.mp4', label: 'vid_2026-04-04_at_08.54.12.mp4' },
-  { value: 'media/vid_2026-04-04_at_08.54.13.mp4', label: 'vid_2026-04-04_at_08.54.13.mp4' },
-  { value: 'media/vid_2026-04-04_at_08.54.18.mp4', label: 'vid_2026-04-04_at_08.54.18.mp4' },
-  { value: 'media/vid_2026-04-04_at_08.54.20.mp4', label: 'vid_2026-04-04_at_08.54.20.mp4' },
-  { value: 'media/vid_2026-04-04_at_08.54.38.mp4', label: 'vid_2026-04-04_at_08.54.38.mp4' },
-  { value: 'media/vid_2026-04-04_at_08.54.41.mp4', label: 'vid_2026-04-04_at_08.54.41.mp4' }
+  {
+    "value": "media/vid_2026-04-04_at_08.54.03.mp4",
+    "label": "vid_2026-04-04_at_08.54.03.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.07.mp4",
+    "label": "vid_2026-04-04_at_08.54.07.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.09.mp4",
+    "label": "vid_2026-04-04_at_08.54.09.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.12.mp4",
+    "label": "vid_2026-04-04_at_08.54.12.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.13.mp4",
+    "label": "vid_2026-04-04_at_08.54.13.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.18.mp4",
+    "label": "vid_2026-04-04_at_08.54.18.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.20.mp4",
+    "label": "vid_2026-04-04_at_08.54.20.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.38.mp4",
+    "label": "vid_2026-04-04_at_08.54.38.mp4"
+  },
+  {
+    "value": "media/vid_2026-04-04_at_08.54.41.mp4",
+    "label": "vid_2026-04-04_at_08.54.41.mp4"
+  }
 ];
 
-const demoConfig = {
+const CONFIG_DEFAULTS = {
+  publishedTheme: 'clean',
+  settings: {
+    autoCarouselIntervalMs: 5000
+  },
+  texts: {
+    heroEyebrow: '',
+    heroTitle: '',
+    heroSubtitle: '',
+    momentsEyebrow: '',
+    momentsTitle: '',
+    musicEyebrow: '',
+    musicTitle: '',
+    letterEyebrow: '',
+    letterTitle: '',
+    nowPlayingLabel: '',
+    emptyTrackText: '',
+    closing: ''
+  },
+  hero: {
+    type: 'image',
+    src: ''
+  },
+  carousel: [],
+  tracks: [],
+  letter: ''
+};
+
+const EMBEDDED_CONFIG = {
   publishedTheme: 'clean',
   texts: {
     heroEyebrow: 'Nosso cantinho',
@@ -410,6 +879,7 @@ const demoConfig = {
 <p>Nos detalhes, nas risadas, nas conversas e até nos silêncios. Obrigado por existir na minha vida.</p>
 <p><em>Eu amo você. Hoje, amanhã e sempre.</em></p>`
 };
+const FILE_CONFIG = mergeConfig(EMBEDDED_CONFIG || CONFIG_DEFAULTS);
 
 let config = loadConfig();
 let currentTheme = config.publishedTheme || 'clean';
@@ -452,7 +922,7 @@ const cleanFrame = document.getElementById('cleanFrame');
 const darkFrame = document.getElementById('darkFrame');
 
 const heroType = document.getElementById('heroType');
-const heroFile = document.getElementById('heroFile');
+const heroSourceSelect = document.getElementById('heroSourceSelect');
 const heroTitleInput = document.getElementById('heroTitle');
 const heroSubtitleInput = document.getElementById('heroSubtitle');
 const heroEyebrowInput = document.getElementById('heroEyebrowInput');
@@ -507,13 +977,19 @@ function bindStaticEvents() {
   document.getElementById('toggleEditorBtn')?.addEventListener('click', openEditor);
   document.getElementById('closeEditorBtn')?.addEventListener('click', closeEditor);
   document.getElementById('saveBtn')?.addEventListener('click', saveFromEditor);
+  document.getElementById('exportConfigBtn')?.addEventListener('click', exportBackupConfigFile);
   document.getElementById('resetBtn')?.addEventListener('click', resetConfig);
   document.getElementById('addCarouselItemBtn')?.addEventListener('click', () => addCarouselItem());
   document.getElementById('addTrackBtn')?.addEventListener('click', () => addTrack());
   document.getElementById('compareThemesBtn')?.addEventListener('click', openCompareMode);
   document.getElementById('closeCompareBtn')?.addEventListener('click', closeCompareMode);
 
-  heroType?.addEventListener('change', () => config.hero.type = heroType.value);
+  heroType?.addEventListener('change', () => {
+    config.hero.type = heroType.value;
+    config.hero.src = '';
+    fillHeroSourceOptions();
+    renderHero();
+  });
   heroTitleInput?.addEventListener('input', e => config.texts.heroTitle = e.target.value);
   heroSubtitleInput?.addEventListener('input', e => config.texts.heroSubtitle = e.target.value);
   heroEyebrowInput?.addEventListener('input', e => config.texts.heroEyebrow = e.target.value);
@@ -531,12 +1007,8 @@ function bindStaticEvents() {
   });
   letterInput?.addEventListener('input', e => config.letter = e.target.value);
   closingText?.addEventListener('input', e => config.texts.closing = e.target.value);
-  heroFile?.addEventListener('change', async e => {
-    const file = e.target.files[0];
-    if (!file) return;
-    config.hero.src = await fileToDataUrl(file);
-    if (file.type.startsWith('video/')) config.hero.type = 'video';
-    if (file.type.startsWith('image/')) config.hero.type = 'image';
+  heroSourceSelect?.addEventListener('change', e => {
+    config.hero.src = e.target.value;
     renderHero();
   });
 
@@ -559,21 +1031,24 @@ function bindStaticEvents() {
   });
 }
 
+
 function loadConfig() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    const parsed = saved ? JSON.parse(saved) : structuredClone(demoConfig);
-    return mergeConfig(parsed);
+    if (!saved) return structuredClone(FILE_CONFIG);
+    const parsed = JSON.parse(saved);
+    return mergeConfig(parsed, FILE_CONFIG);
   } catch {
-    return structuredClone(demoConfig);
+    return structuredClone(FILE_CONFIG);
   }
 }
 
-function mergeConfig(raw) {
-  const merged = structuredClone(demoConfig);
+function mergeConfig(raw, baseConfig = CONFIG_DEFAULTS) {
+  const merged = structuredClone(baseConfig);
   merged.publishedTheme = raw?.publishedTheme || merged.publishedTheme;
-  merged.texts = { ...merged.texts, ...(raw?.texts || {}) };
-  if (raw?.hero) merged.hero = { ...merged.hero, ...raw.hero };
+  merged.settings = { ...(merged.settings || {}), ...(raw?.settings || {}) };
+  merged.texts = { ...(merged.texts || {}), ...(raw?.texts || {}) };
+  if (raw?.hero) merged.hero = { ...(merged.hero || {}), ...raw.hero };
   if (Array.isArray(raw?.carousel)) merged.carousel = raw.carousel;
   if (Array.isArray(raw?.tracks)) merged.tracks = raw.tracks;
   if (typeof raw?.letter === 'string') merged.letter = raw.letter;
@@ -583,6 +1058,8 @@ function mergeConfig(raw) {
 function populateEditor() {
   if (!isEditor) return;
   heroType.value = config.hero.type;
+  fillHeroSourceOptions();
+  if (heroSourceSelect) heroSourceSelect.value = config.hero.src || '';
   heroTitleInput.value = config.texts.heroTitle;
   heroSubtitleInput.value = config.texts.heroSubtitle;
   heroEyebrowInput.value = config.texts.heroEyebrow;
@@ -611,20 +1088,30 @@ function renderAll() {
   setTheme(config.publishedTheme || currentTheme);
 }
 
+
 function renderTexts() {
-  heroEyebrowView.textContent = config.texts.heroEyebrow || '';
-  heroTitleView.textContent = config.texts.heroTitle || '';
-  heroSubtitleView.textContent = config.texts.heroSubtitle || '';
-  momentsEyebrowView.textContent = config.texts.momentsEyebrow || '';
-  momentsTitleView.textContent = config.texts.momentsTitle || '';
-  musicEyebrowView.textContent = config.texts.musicEyebrow || '';
-  musicTitleView.textContent = config.texts.musicTitle || '';
-  letterEyebrowView.textContent = config.texts.letterEyebrow || '';
-  letterTitleView.textContent = config.texts.letterTitle || '';
-  nowPlayingLabelView.textContent = config.texts.nowPlayingLabel || '';
+  if (heroEyebrowView) heroEyebrowView.textContent = config.texts.heroEyebrow || '';
+  if (heroTitleView) heroTitleView.textContent = config.texts.heroTitle || '';
+  if (heroSubtitleView) heroSubtitleView.textContent = config.texts.heroSubtitle || '';
+  if (momentsEyebrowView) momentsEyebrowView.textContent = config.texts.momentsEyebrow || '';
+  if (momentsTitleView) momentsTitleView.textContent = config.texts.momentsTitle || '';
+  if (musicEyebrowView) musicEyebrowView.textContent = config.texts.musicEyebrow || '';
+  if (musicTitleView) musicTitleView.textContent = config.texts.musicTitle || '';
+  if (letterEyebrowView) letterEyebrowView.textContent = config.texts.letterEyebrow || '';
+  if (letterTitleView) letterTitleView.textContent = config.texts.letterTitle || '';
+  if (nowPlayingLabelView) nowPlayingLabelView.textContent = config.texts.nowPlayingLabel || '';
+}
+
+
+
+function fillHeroSourceOptions() {
+  if (!heroSourceSelect) return;
+  const options = heroType?.value === 'video' ? AVAILABLE_HERO_VIDEO_FILES : AVAILABLE_HERO_IMAGE_FILES;
+  fillSelectOptions(heroSourceSelect, options, config.hero.src || '', 'Selecione um arquivo');
 }
 
 function renderHero() {
+
   heroMedia.innerHTML = '';
   if (!config.hero.src) return;
   if (config.hero.type === 'video') {
@@ -694,14 +1181,23 @@ function moveCarousel(direction) {
   scrollToSlide(currentSlideIndex, true);
 }
 
+
 function scrollToSlide(index, restartTimer = false) {
   const card = carouselTrack.children[index];
   if (!card) return;
   currentSlideIndex = index;
-  card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  const scrollPosition =
+    card.offsetLeft - (carouselTrack.offsetWidth / 2) + (card.offsetWidth / 2);
+
+  carouselTrack.scrollTo({
+    left: scrollPosition,
+    behavior: 'smooth'
+  });
+
   [...carouselDots.children].forEach((dot, i) => dot.classList.toggle('active', i === index));
   if (restartTimer) restartAutoCarousel();
 }
+
 
 
 function startAutoCarousel() {
@@ -710,7 +1206,7 @@ function startAutoCarousel() {
   autoCarouselTimer = setInterval(() => {
     currentSlideIndex = (currentSlideIndex + 1) % config.carousel.length;
     scrollToSlide(currentSlideIndex);
-  }, AUTO_CAROUSEL_INTERVAL_MS);
+  }, Number(config?.settings?.autoCarouselIntervalMs || FILE_CONFIG?.settings?.autoCarouselIntervalMs || 5000));
 }
 
 function stopAutoCarousel() {
@@ -807,10 +1303,10 @@ function syncProgress() {
   if (durationEl) durationEl.textContent = formatTime(duration);
 }
 
+
 function renderCarouselEditor() {
   if (!isEditor) return;
   carouselItemsEditor.innerHTML = '';
-
   config.carousel.forEach((item, index) => {
     const template = document.getElementById('carouselItemTemplate');
     const node = template.content.firstElementChild.cloneNode(true);
@@ -824,7 +1320,7 @@ function renderCarouselEditor() {
 
     const syncMediaOptions = () => {
       const options = typeSelect.value === 'video' ? AVAILABLE_VIDEO_FILES : AVAILABLE_IMAGE_FILES;
-      const currentValue = item.type === typeSelect.value ? (config.carousel[index].src || '') : '';
+      const currentValue = config.carousel[index].type === typeSelect.value ? (config.carousel[index].src || '') : '';
       fillSelectOptions(mediaSelect, options, currentValue, 'Selecione um arquivo');
     };
 
@@ -950,6 +1446,7 @@ function closeEditor() {
   editorDrawer?.setAttribute('aria-hidden', 'true');
 }
 
+
 function saveFromEditor() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
   renderAll();
@@ -958,9 +1455,23 @@ function saveFromEditor() {
   alert('Conteúdo salvo no navegador.');
 }
 
+function exportBackupConfigFile() {
+  const exportText = 'window.SITE_CONFIG = ' + JSON.stringify(config, null, 2) + ';\n';
+  const blob = new Blob([exportText], { type: 'application/javascript' });
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement('a');
+  anchor.href = url;
+  anchor.download = 'config-backup.js';
+  document.body.appendChild(anchor);
+  anchor.click();
+  anchor.remove();
+  URL.revokeObjectURL(url);
+}
+
+
 function resetConfig() {
-  if (!confirm('Restaurar o conteúdo de exemplo?')) return;
-  config = structuredClone(demoConfig);
+  if (!confirm('Restaurar a configuração padrão embutida no projeto?')) return;
+  config = structuredClone(FILE_CONFIG);
   currentTrackIndex = 0;
   currentSlideIndex = 0;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(config));

@@ -84,8 +84,10 @@
             <option value="video">Vídeo</option>
           </select>
         </label>
-        <label>Imagem ou vídeo do banner
-          <input type="file" id="heroFile" accept="image/*,video/*" />
+        <label>Arquivo do banner
+          <select id="heroSourceSelect">
+            <option value="">Selecione um arquivo</option>
+          </select>
         </label>
       </section>
 
@@ -132,6 +134,7 @@
 
     <div class="editor-footer">
       <button class="secondary-btn" id="resetBtn">Restaurar exemplo</button>
+      <button class="secondary-btn" id="exportConfigBtn">Exportar backup config.js</button>
       <button class="primary-btn" id="saveBtn">Salvar no navegador</button>
     </div>
   </aside>
