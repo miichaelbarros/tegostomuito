@@ -862,6 +862,8 @@ function scrollToSlide(index, restartTimer = false) {
 
 function startAutoCarousel() {
   stopAutoCarousel();
+  const isMobile = window.innerWidth <= 768;
+  if (isMobile) return;
   if (!carouselTrack || config.carousel.length <= 1) return;
   autoCarouselTimer = setInterval(() => {
     currentSlideIndex = (currentSlideIndex + 1) % config.carousel.length;
