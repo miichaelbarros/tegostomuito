@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosso site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-theme="clean" data-mode="final">
+  <main class="site-shell">
+    <section class="hero section-card">
+      <div class="hero-media" id="heroMedia"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow" id="heroEyebrowView">Nosso cantinho</p>
+        <h1 id="heroTitleView">Para você, todo meu amor.</h1>
+        <p id="heroSubtitleView">Feito com carinho para guardar nossos momentos, nossas músicas e tudo o que eu sinto por você.</p>
+      </div>
+    </section>
+
+    <section class="moments section-card">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" id="momentsEyebrowView">Momentos</p>
+          <h2 id="momentsTitleView">O que eu guardo no coração</h2>
+        </div>
+      </div>
+      <div class="carousel-shell">
+        <button class="nav-arrow" id="prevSlideBtn" aria-label="Voltar">‹</button>
+        <div class="carousel-track" id="carouselTrack"></div>
+        <button class="nav-arrow" id="nextSlideBtn" aria-label="Avançar">›</button>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </section>
+
+    <section class="music section-card">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" id="musicEyebrowView">Nossa trilha</p>
+          <h2 id="musicTitleView">Músicas que contam a nossa história</h2>
+        </div>
+      </div>
+      <div class="autoplay-hint" id="autoplayHint">Toque em qualquer lugar da página para iniciar a música, caso o navegador bloqueie a reprodução automática.</div>
+      <div class="player-card">
+        <div class="track-art" id="trackArt"></div>
+        <div class="player-main">
+          <div class="track-meta">
+            <span class="mini-label" id="nowPlayingLabelView">Tocando agora</span>
+            <h3 id="trackTitle">Sem música carregada</h3>
+            <p id="trackArtist">Adicione faixas no painel de edição.</p>
+          </div>
+          <div class="progress-wrap">
+            <span id="currentTime">0:00</span>
+            <input type="range" id="seekBar" min="0" max="100" value="0" />
+            <span id="duration">0:00</span>
+          </div>
+          <div class="player-controls">
+            <button class="icon-control" id="prevTrackBtn" aria-label="Faixa anterior">⏮</button>
+            <button class="play-btn" id="playPauseBtn" aria-label="Tocar ou pausar">▶</button>
+            <button class="icon-control" id="nextTrackBtn" aria-label="Próxima faixa">⏭</button>
+            <label class="volume-control">
+              🔊
+              <input type="range" id="volumeBar" min="0" max="1" step="0.01" value="0.8" />
+            </label>
+          </div>
+          <div class="playlist" id="playlist"></div>
+        </div>
+      </div>
+      <audio id="audioPlayer" preload="metadata"></audio>
+    </section>
+
+    <section class="letter section-card">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" id="letterEyebrowView">Carta</p>
+          <h2 id="letterTitleView">Minha carta para você</h2>
+        </div>
+      </div>
+      <article class="letter-paper" id="letterView"></article>
+    </section>
+
+    <section class="closing section-card">
+      <p id="closingTextView">O que a gente tem... não é só amor. É lar.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

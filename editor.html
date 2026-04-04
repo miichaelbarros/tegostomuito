@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosso site — editor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-theme="clean" data-mode="editor">
+  <div class="floating-controls glass-panel">
+    <div class="theme-switcher">
+      <button class="theme-btn active" data-theme-select="clean">Preview clean</button>
+      <button class="theme-btn" data-theme-select="dark">Preview dark</button>
+      <button class="theme-btn" id="compareThemesBtn">Comparar os dois</button>
+    </div>
+    <button class="editor-toggle" id="toggleEditorBtn">Editar conteúdo</button>
+  </div>
+
+  <aside class="editor-drawer" id="editorDrawer" aria-hidden="true">
+    <div class="editor-header">
+      <h2>Painel de edição</h2>
+      <button class="icon-btn" id="closeEditorBtn" aria-label="Fechar painel">×</button>
+    </div>
+
+    <div class="editor-body">
+      <section class="editor-section">
+        <h3>Tema publicado</h3>
+        <p class="helper-text">Escolha como a versão final vai aparecer para ela.</p>
+        <label>Estilo da versão final
+          <select id="publishedTheme">
+            <option value="clean">Clean</option>
+            <option value="dark">Dark</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="editor-section">
+        <h3>Textos gerais</h3>
+        <div class="editor-toolbar-row">
+          <label>Texto pequeno do banner
+            <input type="text" id="heroEyebrowInput" placeholder="Nosso cantinho" />
+          </label>
+          <label>Título do banner
+            <input type="text" id="heroTitle" placeholder="Para você, todo meu amor." />
+          </label>
+          <label>Subtítulo do banner
+            <textarea id="heroSubtitle" rows="3" placeholder="Uma frase especial para ela."></textarea>
+          </label>
+          <label>Texto pequeno da seção de momentos
+            <input type="text" id="momentsEyebrowInput" placeholder="Momentos" />
+          </label>
+          <label>Título da seção de momentos
+            <input type="text" id="momentsTitleInput" placeholder="O que eu guardo no coração" />
+          </label>
+          <label>Texto pequeno da seção de música
+            <input type="text" id="musicEyebrowInput" placeholder="Nossa trilha" />
+          </label>
+          <label>Título da seção de música
+            <input type="text" id="musicTitleInput" placeholder="Músicas que contam a nossa história" />
+          </label>
+          <label>Texto pequeno da seção da carta
+            <input type="text" id="letterEyebrowInput" placeholder="Carta" />
+          </label>
+          <label>Título da seção da carta
+            <input type="text" id="letterTitleInput" placeholder="Minha carta para você" />
+          </label>
+          <label>Texto "tocando agora"
+            <input type="text" id="nowPlayingLabelInput" placeholder="Tocando agora" />
+          </label>
+          <label>Mensagem quando não houver música
+            <input type="text" id="emptyTrackTextInput" placeholder="Adicione faixas no painel de edição." />
+          </label>
+        </div>
+      </section>
+
+      <section class="editor-section">
+        <h3>Banner</h3>
+        <label>Tipo de mídia
+          <select id="heroType">
+            <option value="image">Imagem</option>
+            <option value="video">Vídeo</option>
+          </select>
+        </label>
+        <label>Imagem ou vídeo do banner
+          <input type="file" id="heroFile" accept="image/*,video/*" />
+        </label>
+      </section>
+
+      <section class="editor-section">
+        <div class="section-title-row">
+          <h3>Carrossel de momentos</h3>
+          <button class="secondary-btn" id="addCarouselItemBtn">Adicionar item</button>
+        </div>
+        <p class="helper-text">Adicione fotos e vídeos. Você pode reordenar ou remover.</p>
+        <div id="carouselItemsEditor" class="stack"></div>
+      </section>
+
+      <section class="editor-section">
+        <div class="section-title-row">
+          <h3>Músicas</h3>
+          <button class="secondary-btn" id="addTrackBtn">Adicionar música</button>
+        </div>
+        <p class="helper-text">O player toca em sequência e avança sozinho.</p>
+        <div id="tracksEditor" class="stack"></div>
+      </section>
+
+      <section class="editor-section">
+        <h3>Carta</h3>
+        <div class="toolbar" id="letterToolbar">
+          <button type="button" data-wrap="strong">B</button>
+          <button type="button" data-wrap="em">I</button>
+          <button type="button" data-wrap="u">U</button>
+          <button type="button" data-block="br"><span>↵</span></button>
+          <button type="button" data-block="p">P</button>
+        </div>
+        <label>Conteúdo da carta
+          <textarea id="letterInput" rows="12" placeholder="Escreva aqui a carta. Use os botões acima para inserir marcações simples."></textarea>
+        </label>
+        <p class="helper-text">Na visualização do site, a carta aparece somente leitura.</p>
+      </section>
+
+      <section class="editor-section">
+        <h3>Frase final</h3>
+        <label>Texto final
+          <textarea id="closingText" rows="4" placeholder="O que a gente tem... não é só amor. É lar."></textarea>
+        </label>
+      </section>
+    </div>
+
+    <div class="editor-footer">
+      <button class="secondary-btn" id="resetBtn">Restaurar exemplo</button>
+      <button class="primary-btn" id="saveBtn">Salvar no navegador</button>
+    </div>
+  </aside>
+
+  <div class="compare-overlay" id="compareOverlay" hidden>
+    <div class="compare-header glass-panel">
+      <h2>Comparação de temas</h2>
+      <button class="icon-btn" id="closeCompareBtn" aria-label="Fechar comparação">×</button>
+    </div>
+    <div class="compare-grid">
+      <iframe title="Preview clean" id="cleanFrame"></iframe>
+      <iframe title="Preview dark" id="darkFrame"></iframe>
+    </div>
+  </div>
+
+  <main class="site-shell">
+    <section class="hero section-card">
+      <div class="hero-media" id="heroMedia"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow" id="heroEyebrowView">Nosso cantinho</p>
+        <h1 id="heroTitleView">Para você, todo meu amor.</h1>
+        <p id="heroSubtitleView">Feito com carinho para guardar nossos momentos, nossas músicas e tudo o que eu sinto por você.</p>
+      </div>
+    </section>
+
+    <section class="moments section-card">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" id="momentsEyebrowView">Momentos</p>
+          <h2 id="momentsTitleView">O que eu guardo no coração</h2>
+        </div>
+      </div>
+      <div class="carousel-shell">
+        <button class="nav-arrow" id="prevSlideBtn" aria-label="Voltar">‹</button>
+        <div class="carousel-track" id="carouselTrack"></div>
+        <button class="nav-arrow" id="nextSlideBtn" aria-label="Avançar">›</button>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </section>
+
+    <section class="music section-card">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" id="musicEyebrowView">Nossa trilha</p>
+          <h2 id="musicTitleView">Músicas que contam a nossa história</h2>
+        </div>
+      </div>
+      <div class="autoplay-hint" id="autoplayHint">Toque em qualquer lugar da página para iniciar a música, caso o navegador bloqueie a reprodução automática.</div>
+      <div class="player-card">
+        <div class="track-art" id="trackArt"></div>
+        <div class="player-main">
+          <div class="track-meta">
+            <span class="mini-label" id="nowPlayingLabelView">Tocando agora</span>
+            <h3 id="trackTitle">Sem música carregada</h3>
+            <p id="trackArtist">Adicione faixas no painel de edição.</p>
+          </div>
+          <div class="progress-wrap">
+            <span id="currentTime">0:00</span>
+            <input type="range" id="seekBar" min="0" max="100" value="0" />
+            <span id="duration">0:00</span>
+          </div>
+          <div class="player-controls">
+            <button class="icon-control" id="prevTrackBtn" aria-label="Faixa anterior">⏮</button>
+            <button class="play-btn" id="playPauseBtn" aria-label="Tocar ou pausar">▶</button>
+            <button class="icon-control" id="nextTrackBtn" aria-label="Próxima faixa">⏭</button>
+            <label class="volume-control">
+              🔊
+              <input type="range" id="volumeBar" min="0" max="1" step="0.01" value="0.8" />
+            </label>
+          </div>
+          <div class="playlist" id="playlist"></div>
+        </div>
+      </div>
+      <audio id="audioPlayer" preload="metadata"></audio>
+    </section>
+
+    <section class="letter section-card">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" id="letterEyebrowView">Carta</p>
+          <h2 id="letterTitleView">Minha carta para você</h2>
+        </div>
+      </div>
+      <article class="letter-paper" id="letterView"></article>
+    </section>
+
+    <section class="closing section-card">
+      <p id="closingTextView">O que a gente tem... não é só amor. É lar.</p>
+    </section>
+  </main>
+
+  <template id="carouselItemTemplate">
+    <div class="editor-item glass-panel">
+      <div class="editor-item-grid">
+        <label>Tipo
+          <select class="item-type">
+            <option value="image">Imagem</option>
+            <option value="video">Vídeo</option>
+          </select>
+        </label>
+        <label>Título opcional
+          <input type="text" class="item-title" placeholder="Ex.: Viagem para a praia" />
+        </label>
+        <label>Arquivo
+          <input type="file" class="item-file" accept="image/*,video/*" />
+        </label>
+      </div>
+      <div class="editor-item-actions">
+        <button class="secondary-btn move-up">Subir</button>
+        <button class="secondary-btn move-down">Descer</button>
+        <button class="danger-btn remove-item">Remover</button>
+      </div>
+    </div>
+  </template>
+
+  <template id="trackTemplate">
+    <div class="editor-item glass-panel">
+      <div class="editor-item-grid">
+        <label>Título
+          <input type="text" class="track-title" placeholder="Nome da música" />
+        </label>
+        <label>Artista
+          <input type="text" class="track-artist" placeholder="Artista" />
+        </label>
+        <label>Capa opcional
+          <input type="file" class="track-cover" accept="image/*" />
+        </label>
+        <label>Arquivo da música
+          <input type="file" class="track-file" accept="audio/*" />
+        </label>
+      </div>
+      <div class="editor-item-actions">
+        <button class="secondary-btn move-up">Subir</button>
+        <button class="secondary-btn move-down">Descer</button>
+        <button class="danger-btn remove-item">Remover</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
