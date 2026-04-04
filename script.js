@@ -546,340 +546,7 @@ const CONFIG_DEFAULTS = {
   letter: ''
 };
 
-const EMBEDDED_CONFIG = {
-  publishedTheme: 'clean',
-  texts: {
-    heroEyebrow: 'Nosso cantinho',
-    heroTitle: 'Para você, todo meu amor.',
-    heroSubtitle: 'Feito com carinho para guardar nossos momentos, nossas músicas e tudo o que eu sinto por você.',
-    momentsEyebrow: 'Momentos',
-    momentsTitle: 'O que eu guardo no coração',
-    musicEyebrow: 'Nossa trilha',
-    musicTitle: 'Músicas que contam a nossa história',
-    letterEyebrow: 'Carta',
-    letterTitle: 'Minha carta para você',
-    nowPlayingLabel: 'Tocando agora',
-    emptyTrackText: 'Adicione faixas no painel de edição.',
-    closing: 'O que a gente tem... não é só amor. É lar.'
-  },
-  hero: {
-    type: 'image',
-    src: 'assets/banner.jpg'
-  },
-  carousel: [
-  {
-    "type": "image",
-    "title": "Momento 1",
-    "src": "media/img_2026-04-04_at_08.54.40_1.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 2",
-    "src": "media/img_2026-04-04_at_08.54.28.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 3",
-    "src": "media/img_2026-04-04_at_08.54.16.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 4",
-    "src": "media/img_2026-04-04_at_08.54.18_1.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 5",
-    "src": "media/img_2026-04-04_at_08.54.19.jpeg"
-  },
-  {
-    "type": "video",
-    "title": "Vídeo 1",
-    "src": "media/vid_2026-04-04_at_08.54.12.mp4"
-  },
-  {
-    "type": "image",
-    "title": "Momento 6",
-    "src": "media/img_2026-04-04_at_08.54.39_2.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 7",
-    "src": "media/img_2026-04-04_at_08.54.19_1.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 8",
-    "src": "media/img_2026-04-04_at_08.54.16_1.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 9",
-    "src": "media/img_2026-04-04_at_08.54.44.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 10",
-    "src": "media/img_2026-04-04_at_08.54.38.jpeg"
-  },
-  {
-    "type": "video",
-    "title": "Vídeo 2",
-    "src": "media/vid_2026-04-04_at_08.54.13.mp4"
-  },
-  {
-    "type": "image",
-    "title": "Momento 11",
-    "src": "media/img_2026-04-04_at_08.54.39.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 12",
-    "src": "media/img_2026-04-04_at_08.54.38_2.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 13",
-    "src": "media/img_2026-04-04_at_08.54.43_2.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 14",
-    "src": "media/img_2026-04-04_at_08.54.14_1.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 15",
-    "src": "media/img_2026-04-04_at_08.54.28_1.jpeg"
-  },
-  {
-    "type": "video",
-    "title": "Vídeo 3",
-    "src": "media/vid_2026-04-04_at_08.54.38.mp4"
-  },
-  {
-    "type": "image",
-    "title": "Momento 16",
-    "src": "media/img_2026-04-04_at_08.54.14_2.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 17",
-    "src": "media/img_2026-04-04_at_08.54.38_1.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 18",
-    "src": "media/img_2026-04-04_at_08.54.16_2.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 19",
-    "src": "media/img_2026-04-04_at_08.54.42_1.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 20",
-    "src": "media/img_2026-04-04_at_08.54.28_2.jpeg"
-  },
-  {
-    "type": "video",
-    "title": "Vídeo 4",
-    "src": "media/vid_2026-04-04_at_08.54.03.mp4"
-  },
-  {
-    "type": "image",
-    "title": "Momento 21",
-    "src": "media/img_2026-04-04_at_08.54.42.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 22",
-    "src": "media/img_2026-04-04_at_08.54.29_1.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 23",
-    "src": "media/img_2026-04-04_at_08.53.57.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 24",
-    "src": "media/img_2026-04-04_at_08.54.43.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 25",
-    "src": "media/img_2026-04-04_at_08.54.29.jpeg"
-  },
-  {
-    "type": "video",
-    "title": "Vídeo 5",
-    "src": "media/vid_2026-04-04_at_08.54.07.mp4"
-  },
-  {
-    "type": "image",
-    "title": "Momento 26",
-    "src": "media/img_2026-04-04_at_08.54.18.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 27",
-    "src": "media/img_2026-04-04_at_08.54.37.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 28",
-    "src": "media/img_2026-04-04_at_08.54.45.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 29",
-    "src": "media/img_2026-04-04_at_08.54.30.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 30",
-    "src": "media/img_2026-04-04_at_08.54.17_1.jpeg"
-  },
-  {
-    "type": "video",
-    "title": "Vídeo 6",
-    "src": "media/vid_2026-04-04_at_08.54.41.mp4"
-  },
-  {
-    "type": "image",
-    "title": "Momento 31",
-    "src": "media/img_2026-04-04_at_08.54.39_1.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 32",
-    "src": "media/img_2026-04-04_at_08.54.17_2.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 33",
-    "src": "media/img_2026-04-04_at_08.54.44_2.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 34",
-    "src": "media/img_2026-04-04_at_08.54.08.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 35",
-    "src": "media/img_2026-04-04_at_08.54.37_1.jpeg"
-  },
-  {
-    "type": "video",
-    "title": "Vídeo 7",
-    "src": "media/vid_2026-04-04_at_08.54.09.mp4"
-  },
-  {
-    "type": "image",
-    "title": "Momento 36",
-    "src": "media/img_2026-04-04_at_08.54.40.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 37",
-    "src": "media/img_2026-04-04_at_08.54.14.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 38",
-    "src": "media/img_2026-04-04_at_08.54.39_3.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 39",
-    "src": "media/img_2026-04-04_at_08.54.44_1.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 40",
-    "src": "media/img_2026-04-04_at_08.54.15_1.jpeg"
-  },
-  {
-    "type": "video",
-    "title": "Vídeo 8",
-    "src": "media/vid_2026-04-04_at_08.54.20.mp4"
-  },
-  {
-    "type": "image",
-    "title": "Momento 41",
-    "src": "media/img_2026-04-04_at_08.54.15.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 42",
-    "src": "media/img_2026-04-04_at_08.54.17_3.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 43",
-    "src": "media/img_2026-04-04_at_08.54.17.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 44",
-    "src": "media/img_2026-04-04_at_08.54.18_2.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 45",
-    "src": "media/img_2026-04-04_at_08.54.50.jpeg"
-  },
-  {
-    "type": "video",
-    "title": "Vídeo 9",
-    "src": "media/vid_2026-04-04_at_08.54.18.mp4"
-  },
-  {
-    "type": "image",
-    "title": "Momento 46",
-    "src": "media/img_2026-04-04_at_08.54.07.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 47",
-    "src": "media/img_2026-04-04_at_08.54.15_2.jpeg"
-  },
-  {
-    "type": "image",
-    "title": "Momento 48",
-    "src": "media/img_2026-04-04_at_08.54.43_1.jpeg"
-  }
-],
-  tracks: [
-    {
-      title: 'Música 1',
-      artist: 'Nossa playlist',
-      src: 'assets/musica1.m4a',
-      cover: 'assets/capa1.jpg'
-    },
-    {
-      title: 'Música 2',
-      artist: 'Nossa playlist',
-      src: 'assets/musica2.mp3',
-      cover: 'assets/capa2.jpg'
-    },
-    {
-      title: 'Música 3',
-      artist: 'Nossa playlist',
-      src: 'assets/musica3.mp3',
-      cover: 'assets/capa3.jpg'
-    }
-  ],
-  letter: `<p>Eu nem sei por onde começar...</p>
-<p>Desde que você chegou, meus dias ganharam mais cor, mais calma e mais sentido.</p>
-<p><strong>Eu te escolho. Todos os dias.</strong></p>
-<p>Nos detalhes, nas risadas, nas conversas e até nos silêncios. Obrigado por existir na minha vida.</p>
-<p><em>Eu amo você. Hoje, amanhã e sempre.</em></p>`
-};
-const FILE_CONFIG = mergeConfig(EMBEDDED_CONFIG || CONFIG_DEFAULTS);
+const FILE_CONFIG = mergeConfig(window.SITE_CONFIG || CONFIG_DEFAULTS);
 
 let config = loadConfig();
 let currentTheme = config.publishedTheme || 'clean';
@@ -977,7 +644,7 @@ function bindStaticEvents() {
   document.getElementById('toggleEditorBtn')?.addEventListener('click', openEditor);
   document.getElementById('closeEditorBtn')?.addEventListener('click', closeEditor);
   document.getElementById('saveBtn')?.addEventListener('click', saveFromEditor);
-  document.getElementById('exportConfigBtn')?.addEventListener('click', exportBackupConfigFile);
+  document.getElementById('exportConfigBtn')?.addEventListener('click', exportCurrentConfigFile);
   document.getElementById('resetBtn')?.addEventListener('click', resetConfig);
   document.getElementById('addCarouselItemBtn')?.addEventListener('click', () => addCarouselItem());
   document.getElementById('addTrackBtn')?.addEventListener('click', () => addTrack());
@@ -1033,14 +700,7 @@ function bindStaticEvents() {
 
 
 function loadConfig() {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (!saved) return structuredClone(FILE_CONFIG);
-    const parsed = JSON.parse(saved);
-    return mergeConfig(parsed, FILE_CONFIG);
-  } catch {
-    return structuredClone(FILE_CONFIG);
-  }
+  return structuredClone(FILE_CONFIG);
 }
 
 function mergeConfig(raw, baseConfig = CONFIG_DEFAULTS) {
@@ -1452,25 +1112,32 @@ function saveFromEditor() {
   renderAll();
   populateEditor();
   attemptAutoplay();
-  alert('Conteúdo salvo no navegador.');
+  downloadConfigFile(config);
+  alert('O site sempre abre a partir do config.js. As alterações foram salvas no navegador e um novo config.js foi exportado para backup/publicação.');
 }
 
-function exportBackupConfigFile() {
-  const exportText = 'window.SITE_CONFIG = ' + JSON.stringify(config, null, 2) + ';\n';
+
+
+function downloadConfigFile(configToExport) {
+  const exportText = 'window.SITE_CONFIG = ' + JSON.stringify(configToExport, null, 2) + ';\n';
   const blob = new Blob([exportText], { type: 'application/javascript' });
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement('a');
   anchor.href = url;
-  anchor.download = 'config-backup.js';
+  anchor.download = 'config.js';
   document.body.appendChild(anchor);
   anchor.click();
   anchor.remove();
   URL.revokeObjectURL(url);
 }
 
+function exportCurrentConfigFile() {
+  downloadConfigFile(config);
+}
+
 
 function resetConfig() {
-  if (!confirm('Restaurar a configuração padrão embutida no projeto?')) return;
+  if (!confirm('Restaurar a configuração do arquivo config.js?')) return;
   config = structuredClone(FILE_CONFIG);
   currentTrackIndex = 0;
   currentSlideIndex = 0;
