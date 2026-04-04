@@ -1,6 +1,19 @@
 const STORAGE_KEY = 'romantic-site-config-v3-media';
 const AUTO_CAROUSEL_INTERVAL_MS = 5000; // 5000 = 5 segundos
 
+const AVAILABLE_AUDIO_FILES = [
+  { value: 'assets/musica1.m4a', label: 'musica1.m4a' },
+  { value: 'assets/musica2.mp3', label: 'musica2.mp3' },
+  { value: 'assets/musica3.mp3', label: 'musica3.mp3' }
+];
+
+const AVAILABLE_COVER_FILES = [
+  { value: 'assets/capa1.jpg', label: 'capa1.jpg' },
+  { value: 'assets/capa2.jpg', label: 'capa2.jpg' },
+  { value: 'assets/capa3.jpg', label: 'capa3.jpg' }
+];
+
+
 const demoConfig = {
   publishedTheme: 'clean',
   texts: {
@@ -19,7 +32,7 @@ const demoConfig = {
   },
   hero: {
     type: 'image',
-    src: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1600&q=80'
+    src: 'media/banner.jpg'
   },
   carousel: [
   {
@@ -310,16 +323,22 @@ const demoConfig = {
 ],
   tracks: [
     {
-      title: 'Minha trilha favorita',
-      artist: 'Adicione sua música',
-      src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-      cover: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80'
+      title: 'Música 1',
+      artist: 'Nossa playlist',
+      src: 'assets/musica1.m4a',
+      cover: 'assets/capa1.jpg'
     },
     {
-      title: 'Segunda música',
-      artist: 'Playlist em sequência',
-      src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-      cover: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80'
+      title: 'Música 2',
+      artist: 'Nossa playlist',
+      src: 'assets/musica2.mp3',
+      cover: 'assets/capa2.jpg'
+    },
+    {
+      title: 'Música 3',
+      artist: 'Nossa playlist',
+      src: 'assets/musica3.mp3',
+      cover: 'assets/capa3.jpg'
     }
   ],
   letter: `<p>Eu nem sei por onde começar...</p>
@@ -615,9 +634,21 @@ function moveCarousel(direction) {
 function scrollToSlide(index, restartTimer = false) {
   const card = carouselTrack.children[index];
   if (!card) return;
+
   currentSlideIndex = index;
-  card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-  [...carouselDots.children].forEach((dot, i) => dot.classList.toggle('active', i === index));
+
+  const scrollPosition =
+    card.offsetLeft - (carouselTrack.offsetWidth / 2) + (card.offsetWidth / 2);
+
+  carouselTrack.scrollTo({
+    left: scrollPosition,
+    behavior: 'smooth'
+  });
+
+  [...carouselDots.children].forEach((dot, i) =>
+    dot.classList.toggle('active', i === index)
+  );
+
   if (restartTimer) restartAutoCarousel();
 }
 
@@ -755,6 +786,23 @@ function renderCarouselEditor() {
   });
 }
 
+function fillSelectOptions(select, options, currentValue, placeholderText) {
+  select.innerHTML = '';
+  if (placeholderText) {
+    const placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.textContent = placeholderText;
+    select.appendChild(placeholder);
+  }
+  options.forEach(optionData => {
+    const option = document.createElement('option');
+    option.value = optionData.value;
+    option.textContent = optionData.label;
+    if (optionData.value === currentValue) option.selected = true;
+    select.appendChild(option);
+  });
+}
+
 function renderTracksEditor() {
   if (!isEditor) return;
   tracksEditor.innerHTML = '';
@@ -764,18 +812,22 @@ function renderTracksEditor() {
     node.querySelector('.track-title').value = track.title || '';
     node.querySelector('.track-artist').value = track.artist || '';
 
+    const coverSelect = node.querySelector('.track-cover-select');
+    const fileSelect = node.querySelector('.track-file-select');
+
+    fillSelectOptions(coverSelect, AVAILABLE_COVER_FILES, track.cover || '', 'Sem capa');
+    fillSelectOptions(fileSelect, AVAILABLE_AUDIO_FILES, track.src || '', 'Selecione uma música');
+
     node.querySelector('.track-title').addEventListener('input', e => config.tracks[index].title = e.target.value);
     node.querySelector('.track-artist').addEventListener('input', e => config.tracks[index].artist = e.target.value);
-    node.querySelector('.track-cover').addEventListener('change', async e => {
-      const file = e.target.files[0];
-      if (!file) return;
-      config.tracks[index].cover = await fileToDataUrl(file);
+
+    coverSelect.addEventListener('change', e => {
+      config.tracks[index].cover = e.target.value;
       renderPlayer();
     });
-    node.querySelector('.track-file').addEventListener('change', async e => {
-      const file = e.target.files[0];
-      if (!file) return;
-      config.tracks[index].src = await fileToDataUrl(file);
+
+    fileSelect.addEventListener('change', e => {
+      config.tracks[index].src = e.target.value;
       renderPlayer();
     });
 
@@ -832,7 +884,7 @@ function saveFromEditor() {
   renderAll();
   populateEditor();
   attemptAutoplay();
-  alert('Conteúdo salvo no navegador. A versão final vai ler exatamente esse conteúdo.');
+  alert('Conteúdo salvo no navegador.');
 }
 
 function resetConfig() {
