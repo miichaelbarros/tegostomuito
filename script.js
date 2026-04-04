@@ -334,9 +334,22 @@ function moveCarousel(direction) {
 function scrollToSlide(index, restartTimer = false) {
   const card = carouselTrack.children[index];
   if (!card) return;
+
   currentSlideIndex = index;
-  card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-  [...carouselDots.children].forEach((dot, i) => dot.classList.toggle('active', i === index));
+
+  const trackRect = carouselTrack.getBoundingClientRect();
+  const cardRect = card.getBoundingClientRect();
+
+  const offset = cardRect.left - trackRect.left;
+  carouselTrack.scrollBy({
+    left: offset,
+    behavior: 'smooth'
+  });
+
+  [...carouselDots.children].forEach((dot, i) =>
+    dot.classList.toggle('active', i === index)
+  );
+
   if (restartTimer) restartAutoCarousel();
 }
 
