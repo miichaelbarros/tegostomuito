@@ -1,5 +1,5 @@
-const STORAGE_KEY = 'romantic-site-config-v2';
-const AUTO_CAROUSEL_INTERVAL_MS = 3000; // 5000 = 5 segundos
+const STORAGE_KEY = 'romantic-site-config-v3-media';
+const AUTO_CAROUSEL_INTERVAL_MS = 5000; // 5000 = 5 segundos
 
 const demoConfig = {
   publishedTheme: 'clean',
@@ -22,11 +22,292 @@ const demoConfig = {
     src: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1600&q=80'
   },
   carousel: [
-    { type: 'image', title: 'Nosso abraço', src: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80' },
-    { type: 'image', title: 'Na praia', src: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80' },
-    { type: 'video', title: 'Um vídeo especial', src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4' },
-    { type: 'image', title: 'Memória feliz', src: 'https://images.unsplash.com/photo-1517867065801-e20f409696b0?auto=format&fit=crop&w=800&q=80' }
-  ],
+  {
+    "type": "image",
+    "title": "Momento 1",
+    "src": "media/img_2026-04-04_at_08.54.40_1.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 2",
+    "src": "media/img_2026-04-04_at_08.54.28.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 3",
+    "src": "media/img_2026-04-04_at_08.54.16.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 4",
+    "src": "media/img_2026-04-04_at_08.54.18_1.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 5",
+    "src": "media/img_2026-04-04_at_08.54.19.jpeg"
+  },
+  {
+    "type": "video",
+    "title": "Vídeo 1",
+    "src": "media/vid_2026-04-04_at_08.54.12.mp4"
+  },
+  {
+    "type": "image",
+    "title": "Momento 6",
+    "src": "media/img_2026-04-04_at_08.54.39_2.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 7",
+    "src": "media/img_2026-04-04_at_08.54.19_1.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 8",
+    "src": "media/img_2026-04-04_at_08.54.16_1.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 9",
+    "src": "media/img_2026-04-04_at_08.54.44.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 10",
+    "src": "media/img_2026-04-04_at_08.54.38.jpeg"
+  },
+  {
+    "type": "video",
+    "title": "Vídeo 2",
+    "src": "media/vid_2026-04-04_at_08.54.13.mp4"
+  },
+  {
+    "type": "image",
+    "title": "Momento 11",
+    "src": "media/img_2026-04-04_at_08.54.39.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 12",
+    "src": "media/img_2026-04-04_at_08.54.38_2.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 13",
+    "src": "media/img_2026-04-04_at_08.54.43_2.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 14",
+    "src": "media/img_2026-04-04_at_08.54.14_1.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 15",
+    "src": "media/img_2026-04-04_at_08.54.28_1.jpeg"
+  },
+  {
+    "type": "video",
+    "title": "Vídeo 3",
+    "src": "media/vid_2026-04-04_at_08.54.38.mp4"
+  },
+  {
+    "type": "image",
+    "title": "Momento 16",
+    "src": "media/img_2026-04-04_at_08.54.14_2.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 17",
+    "src": "media/img_2026-04-04_at_08.54.38_1.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 18",
+    "src": "media/img_2026-04-04_at_08.54.16_2.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 19",
+    "src": "media/img_2026-04-04_at_08.54.42_1.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 20",
+    "src": "media/img_2026-04-04_at_08.54.28_2.jpeg"
+  },
+  {
+    "type": "video",
+    "title": "Vídeo 4",
+    "src": "media/vid_2026-04-04_at_08.54.03.mp4"
+  },
+  {
+    "type": "image",
+    "title": "Momento 21",
+    "src": "media/img_2026-04-04_at_08.54.42.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 22",
+    "src": "media/img_2026-04-04_at_08.54.29_1.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 23",
+    "src": "media/img_2026-04-04_at_08.53.57.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 24",
+    "src": "media/img_2026-04-04_at_08.54.43.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 25",
+    "src": "media/img_2026-04-04_at_08.54.29.jpeg"
+  },
+  {
+    "type": "video",
+    "title": "Vídeo 5",
+    "src": "media/vid_2026-04-04_at_08.54.07.mp4"
+  },
+  {
+    "type": "image",
+    "title": "Momento 26",
+    "src": "media/img_2026-04-04_at_08.54.18.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 27",
+    "src": "media/img_2026-04-04_at_08.54.37.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 28",
+    "src": "media/img_2026-04-04_at_08.54.45.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 29",
+    "src": "media/img_2026-04-04_at_08.54.30.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 30",
+    "src": "media/img_2026-04-04_at_08.54.17_1.jpeg"
+  },
+  {
+    "type": "video",
+    "title": "Vídeo 6",
+    "src": "media/vid_2026-04-04_at_08.54.41.mp4"
+  },
+  {
+    "type": "image",
+    "title": "Momento 31",
+    "src": "media/img_2026-04-04_at_08.54.39_1.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 32",
+    "src": "media/img_2026-04-04_at_08.54.17_2.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 33",
+    "src": "media/img_2026-04-04_at_08.54.44_2.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 34",
+    "src": "media/img_2026-04-04_at_08.54.08.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 35",
+    "src": "media/img_2026-04-04_at_08.54.37_1.jpeg"
+  },
+  {
+    "type": "video",
+    "title": "Vídeo 7",
+    "src": "media/vid_2026-04-04_at_08.54.09.mp4"
+  },
+  {
+    "type": "image",
+    "title": "Momento 36",
+    "src": "media/img_2026-04-04_at_08.54.40.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 37",
+    "src": "media/img_2026-04-04_at_08.54.14.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 38",
+    "src": "media/img_2026-04-04_at_08.54.39_3.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 39",
+    "src": "media/img_2026-04-04_at_08.54.44_1.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 40",
+    "src": "media/img_2026-04-04_at_08.54.15_1.jpeg"
+  },
+  {
+    "type": "video",
+    "title": "Vídeo 8",
+    "src": "media/vid_2026-04-04_at_08.54.20.mp4"
+  },
+  {
+    "type": "image",
+    "title": "Momento 41",
+    "src": "media/img_2026-04-04_at_08.54.15.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 42",
+    "src": "media/img_2026-04-04_at_08.54.17_3.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 43",
+    "src": "media/img_2026-04-04_at_08.54.17.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 44",
+    "src": "media/img_2026-04-04_at_08.54.18_2.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 45",
+    "src": "media/img_2026-04-04_at_08.54.50.jpeg"
+  },
+  {
+    "type": "video",
+    "title": "Vídeo 9",
+    "src": "media/vid_2026-04-04_at_08.54.18.mp4"
+  },
+  {
+    "type": "image",
+    "title": "Momento 46",
+    "src": "media/img_2026-04-04_at_08.54.07.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 47",
+    "src": "media/img_2026-04-04_at_08.54.15_2.jpeg"
+  },
+  {
+    "type": "image",
+    "title": "Momento 48",
+    "src": "media/img_2026-04-04_at_08.54.43_1.jpeg"
+  }
+],
   tracks: [
     {
       title: 'Minha trilha favorita',
@@ -334,22 +615,9 @@ function moveCarousel(direction) {
 function scrollToSlide(index, restartTimer = false) {
   const card = carouselTrack.children[index];
   if (!card) return;
-
   currentSlideIndex = index;
-
-  const trackRect = carouselTrack.getBoundingClientRect();
-  const cardRect = card.getBoundingClientRect();
-
-  const offset = cardRect.left - trackRect.left;
-  carouselTrack.scrollBy({
-    left: offset,
-    behavior: 'smooth'
-  });
-
-  [...carouselDots.children].forEach((dot, i) =>
-    dot.classList.toggle('active', i === index)
-  );
-
+  card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  [...carouselDots.children].forEach((dot, i) => dot.classList.toggle('active', i === index));
   if (restartTimer) restartAutoCarousel();
 }
 
