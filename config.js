@@ -10,7 +10,7 @@ window.SITE_CONFIG = {
     "momentsEyebrow": "Momentos",
     "momentsTitle": "O que eu guardo no coração",
     "musicEyebrow": "Músicas pra te amar",
-    "musicTitle": "Elas que ajudam a contar nossa história",
+    "musicTitle": "Elas me ajudam a contar nossa história",
     "letterEyebrow": "Carta",
     "letterTitle": "Minha carta para você",
     "nowPlayingLabel": "Tocando agora",
