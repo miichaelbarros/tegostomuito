@@ -303,7 +303,7 @@ window.SITE_CONFIG = {
       "title": "Sweet Lady",
       "artist": "Tyrese",
       "cover": "assets/capa1.jpg",
-      "src": "assets/musica1.m4a"
+      "src": "assets/sweet-lady-tyrese.mp3"
     },
     {
       "title": "Let Me Love You",
