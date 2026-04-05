@@ -12,6 +12,10 @@ const AVAILABLE_AUDIO_FILES = [
   {
     "value": "assets/musica3.mp3",
     "label": "musica3.mp3"
+  },
+  {
+    "value": "assets/sweet-lady-tyrese.mp3",
+    "label": "sweet-lady-tyrese.mp3"
   }
 ];
 
